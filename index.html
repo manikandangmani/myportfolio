@@ -17,6 +17,7 @@
 body{
   background:radial-gradient(circle at top,#0f172a,#020617);
   color:#e5e7eb;
+  scroll-behavior:smooth;
   transition:.3s;
 }
 
@@ -42,6 +43,12 @@ nav a{
   color:#cbd5f5;
 }
 nav a:hover{color:#38bdf8}
+
+/* SOCIAL ICONS (TOP) */
+.social-top a{
+  margin-left:10px;
+  font-size:18px;
+}
 
 /* HERO */
 .hero{
@@ -104,24 +111,22 @@ h3{color:#38bdf8;font-size:32px;margin-bottom:25px}
   box-shadow:0 20px 40px rgba(0,0,0,.6)
 }
 
-/* FOOTER */
+/* FOOTER (CONTACT AREA) */
 footer{
   text-align:center;
-  padding:40px 10%;
+  padding:50px 10%;
   border-top:1px solid rgba(255,255,255,.08);
   color:#94a3b8;
 }
 
 .footer-socials{
-  margin:18px 0;
+  margin:20px 0;
 }
 
 .footer-socials a{
-  margin:0 12px;
+  margin:0 14px;
   font-size:22px;
 }
-
-.footer-socials a:hover{opacity:.8}
 
 /* TOGGLE */
 .toggle-btn{
@@ -161,9 +166,17 @@ body.light footer{color:#475569}
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Theme Toggle -->
+    <!-- SOCIAL ICONS TOP -->
+    <div class="social-top">
+      <a href="https://www.linkedin.com/in/manikandan-g-1baa59230" target="_blank" style="color:#0a66c2"><i class="fab fa-linkedin"></i></a>
+      <a href="https://wa.me/917902873682" target="_blank" style="color:#25D366"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/maniacboy.619" target="_blank" style="color:#E1306C"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- TOGGLE -->
     <button id="themeToggle" class="toggle-btn">
       <i class="fas fa-moon"></i>
     </button>
@@ -214,19 +227,14 @@ body.light footer{color:#475569}
   </div>
 </section>
 
-<footer>
+<!-- FOOTER = CONTACT TARGET -->
+<footer id="contact">
   <p>Email: <strong>manikandangmani@gmail.com</strong></p>
 
   <div class="footer-socials">
-    <a href="https://www.linkedin.com/in/manikandan-g-1baa59230" target="_blank" style="color:#0a66c2">
-      <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="https://wa.me/917902873682" target="_blank" style="color:#25D366">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="https://www.instagram.com/maniacboy.619" target="_blank" style="color:#E1306C">
-      <i class="fab fa-instagram"></i>
-    </a>
+    <a href="https://www.linkedin.com/in/manikandan-g-1baa59230" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://wa.me/917902873682" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.instagram.com/maniacboy.619" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
 
   <p>© 2025 Manikandan G Mani</p>
