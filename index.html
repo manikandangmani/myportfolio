@@ -127,16 +127,56 @@ footer{text-align:center;padding:25px;color:#94a3b8}
   cursor:pointer;
 }
 
-/* LIGHT MODE */
+/* LIGHT MODE – FIXED */
 body.light{
-  background:#f8fafc;
-  color:#020617;
+  background: #f1f5f9;
+  color: #0f172a;
 }
-body.light header{background:rgba(255,255,255,.85)}
-body.light .box,
-body.light .card{background:#ffffff;color:#020617}
-body.light nav a{color:#020617}
-body.light footer{color:#334155}
+
+body.light header{
+  background: rgba(255,255,255,0.9);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+body.light nav a{
+  color: #0f172a;
+}
+
+body.light .hero p{
+  color: #334155;
+}
+
+body.light .box{
+  background: #ffffff;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+body.light .card{
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+body.light input,
+body.light textarea{
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #cbd5f5;
+}
+
+body.light .btn.primary{
+  background: linear-gradient(135deg,#0ea5e9,#38bdf8);
+  color: #ffffff;
+}
+
+body.light .btn.outline{
+  border-color: #0ea5e9;
+  color: #0ea5e9;
+}
+
+body.light footer{
+  color: #475569;
+}
+
 
 /* MOBILE */
 @media(max-width:768px){
