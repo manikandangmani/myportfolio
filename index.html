@@ -223,6 +223,22 @@ body.light footer {
 <footer>
   © 2025 Manikandang Mani
 </footer>
+<script>
+  const toggleBtn = document.getElementById("themeToggle");
+  const icon = toggleBtn.querySelector("i");
+
+  toggleBtn.onclick = () => {
+    document.body.classList.toggle("light");
+
+    if (document.body.classList.contains("light")) {
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
+    } else {
+      icon.classList.remove("fa-sun");
+      icon.classList.add("fa-moon");
+    }
+  };
+</script>
 
 </body>
 </html>
