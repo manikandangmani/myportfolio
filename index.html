@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manikandang Mani | Portfolio</title>
 
+<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -14,11 +17,12 @@
 body{
   background:radial-gradient(circle at top,#0f172a,#020617);
   color:#e5e7eb;
+  transition:0.3s;
 }
 
 a{text-decoration:none;color:inherit}
 
-/* NAVBAR */
+/* HEADER */
 header{
   position:sticky;top:0;z-index:10;
   background:rgba(2,6,23,.85);
@@ -28,7 +32,15 @@ header{
   border-bottom:1px solid rgba(255,255,255,.05)
 }
 header h1{color:#38bdf8;font-size:24px}
-nav a{margin-left:22px;color:#cbd5f5}
+
+.header-right{
+  display:flex;align-items:center;gap:20px;
+}
+
+nav a{
+  margin-left:18px;
+  color:#cbd5f5;
+}
 nav a:hover{color:#38bdf8}
 
 /* HERO */
@@ -41,21 +53,22 @@ nav a:hover{color:#38bdf8}
 .hero span{color:#38bdf8}
 .hero p{max-width:600px;color:#cbd5f5;margin-bottom:35px;font-size:18px}
 
+/* BUTTONS */
 .btn{
   display:inline-block;
   padding:14px 34px;
   border-radius:30px;
   font-weight:600;
   margin-right:15px;
-  transition:.3s
+  transition:.3s;
 }
 .btn.primary{
   background:linear-gradient(135deg,#38bdf8,#0ea5e9);
-  color:#020617
+  color:#020617;
 }
 .btn.outline{
   border:2px solid #38bdf8;
-  color:#38bdf8
+  color:#38bdf8;
 }
 .btn:hover{
   transform:translateY(-3px);
@@ -71,7 +84,6 @@ section{padding:90px 10%}
   padding:50px;
   box-shadow:0 30px 60px rgba(0,0,0,.5)
 }
-
 h3{color:#38bdf8;font-size:32px;margin-bottom:25px}
 
 /* GRID */
@@ -106,35 +118,31 @@ input,textarea{
 /* FOOTER */
 footer{text-align:center;padding:25px;color:#94a3b8}
 
+/* TOGGLE */
+.toggle-btn{
+  background:none;
+  border:none;
+  color:#38bdf8;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* LIGHT MODE */
+body.light{
+  background:#f8fafc;
+  color:#020617;
+}
+body.light header{background:rgba(255,255,255,.85)}
+body.light .box,
+body.light .card{background:#ffffff;color:#020617}
+body.light nav a{color:#020617}
+body.light footer{color:#334155}
+
 /* MOBILE */
 @media(max-width:768px){
   .hero h2{font-size:36px}
   header{flex-direction:column;gap:10px}
 }
-  /* LIGHT MODE */
-body.light {
-  background: #f8fafc;
-  color: #020617;
-}
-
-body.light header {
-  background: rgba(255,255,255,0.85);
-}
-
-body.light .box,
-body.light .card {
-  background: #ffffff;
-  color: #020617;
-}
-
-body.light nav a {
-  color: #020617;
-}
-
-body.light footer {
-  color: #334155;
-}
-
 </style>
 </head>
 
@@ -143,7 +151,7 @@ body.light footer {
 <header>
   <h1>Manikandang Mani</h1>
 
-  <div style="display:flex;align-items:center;gap:18px;">
+  <div class="header-right">
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -151,20 +159,17 @@ body.light footer {
       <a href="#contact">Contact</a>
     </nav>
 
-    <!-- LinkedIn Icon -->
-    <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME"
-       target="_blank"
-       style="font-size:20px;color:#38bdf8;">
-      <i class="fab fa-linkedin"></i>
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank">
+      <i class="fab fa-linkedin" style="font-size:20px;color:#38bdf8"></i>
     </a>
 
-    <!-- Dark/Light Toggle -->
-    <button id="themeToggle" style="background:none;border:none;color:#38bdf8;font-size:18px;cursor:pointer;">
+    <!-- Toggle -->
+    <button id="themeToggle" class="toggle-btn">
       <i class="fas fa-moon"></i>
     </button>
   </div>
 </header>
-
 
 <section class="hero">
   <h2>Hi, I'm <span>Manikandang</span></h2>
@@ -223,21 +228,16 @@ body.light footer {
 <footer>
   © 2025 Manikandang Mani
 </footer>
+
 <script>
-  const toggleBtn = document.getElementById("themeToggle");
-  const icon = toggleBtn.querySelector("i");
-
-  toggleBtn.onclick = () => {
-    document.body.classList.toggle("light");
-
-    if (document.body.classList.contains("light")) {
-      icon.classList.remove("fa-moon");
-      icon.classList.add("fa-sun");
-    } else {
-      icon.classList.remove("fa-sun");
-      icon.classList.add("fa-moon");
-    }
-  };
+const toggle=document.getElementById("themeToggle");
+const icon=toggle.querySelector("i");
+toggle.onclick=()=>{
+  document.body.classList.toggle("light");
+  icon.className=document.body.classList.contains("light")
+    ? "fas fa-sun"
+    : "fas fa-moon";
+};
 </script>
 
 </body>
