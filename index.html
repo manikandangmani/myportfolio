@@ -1,78 +1,249 @@
 <!DOCTYPE html>
-<nav>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</nav>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manikandang Mani | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body {
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      color: #e5e7eb;
+      scroll-behavior: smooth;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(2,6,23,0.75);
+      backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    header h1 { color: #38bdf8; font-size: 24px; }
+
+    nav a {
+      margin-left: 24px;
+      color: #cbd5f5;
+      font-weight: 500;
+    }
+
+    nav a:hover { color: #38bdf8; }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 10%;
+    }
+
+    .hero h2 {
+      font-size: 52px;
+      margin-bottom: 10px;
+    }
+
+    .hero span { color: #38bdf8; }
+
+    .hero p {
+      max-width: 600px;
+      color: #cbd5f5;
+      margin-bottom: 35px;
+      font-size: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 34px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-right: 15px;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #020617;
+    }
+
+    .btn.outline {
+      border: 2px solid #38bdf8;
+      color: #38bdf8;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(56,189,248,0.35);
+    }
+
+    /* SECTIONS */
+    section { padding: 90px 10%; }
+
+    .box {
+      background: rgba(15,23,42,0.85);
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    }
+
+    h3 {
+      color: #38bdf8;
+      font-size: 32px;
+      margin-bottom: 25px;
+    }
+
+    /* SKILLS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #020617;
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    /* CONTACT */
+    form { max-width: 450px; }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      border: none;
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #94a3b8;
+    }
+
+    @media(max-width: 768px) {
+      .hero h2 { font-size: 38px; }
+      header { flex-direction: column; gap: 10px; }
+    }
+  
+    /* SCROLL ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* EXTRA MOBILE POLISH */
+    @media(max-width: 480px) {
+      header h1 { font-size: 20px; }
+      nav a { margin-left: 12px; font-size: 14px; }
+      .hero { padding: 0 6%; }
+      .hero h2 { font-size: 32px; }
+      .hero p { font-size: 15px; }
+      .btn { padding: 12px 22px; margin-bottom: 10px; }
+      .box { padding: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Manikandang Mani</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-
 <section class="hero">
-<h2>Hi, I'm <span>Manikandang</span></h2>
-<p>Full Stack Developer (MERN) building clean, scalable and user‑friendly web applications.</p>
-<div>
-<a href="#projects" class="btn primary">View Projects</a>
-<a href="resume.pdf" class="btn outline" download>Download Resume</a>
-</div>
+  <h2>Hi, I'm <span>Manikandang</span></h2>
+  <p>Full Stack Developer (MERN) building clean, scalable and user‑friendly web applications.</p>
+  <div>
+    <a href="#projects" class="btn primary">View Projects</a>
+    <a href="resume.pdf" class="btn outline" download>Download Resume</a>
+  </div>
 </section>
-
 
 <section id="about">
-<div class="box">
-<h3>About Me</h3>
-<p>I am a motivated developer with hands‑on experience in MERN stack projects including a Waste Management System for local panchayats.</p>
-</div>
+  <div class="box">
+    <h3>About Me</h3>
+    <p>I am a motivated developer with hands‑on experience in MERN stack projects including a Waste Management System for local panchayats.</p>
+  </div>
 </section>
-
 
 <section id="skills">
-<div class="box">
-<h3>Skills</h3>
-<div class="grid">
-<div class="card">HTML • CSS • JavaScript</div>
-<div class="card">React.js</div>
-<div class="card">Node.js & Express</div>
-<div class="card">MongoDB</div>
-<div class="card">REST APIs</div>
-<div class="card">Git & GitHub</div>
-</div>
-</div>
+  <div class="box">
+    <h3>Skills</h3>
+    <div class="grid">
+      <div class="card">HTML • CSS • JavaScript</div>
+      <div class="card">React.js</div>
+      <div class="card">Node.js & Express</div>
+      <div class="card">MongoDB</div>
+      <div class="card">REST APIs</div>
+      <div class="card">Git & GitHub</div>
+    </div>
+  </div>
 </section>
-
 
 <section id="projects">
-<div class="box">
-<h3>Projects</h3>
-<div class="grid">
-<div class="card">
-<h4>Waste Management System</h4>
-<p>GPS‑based system with admin, agent and public modules.</p>
-</div>
-<div class="card">
-<h4>Portfolio Website</h4>
-<p>Modern responsive portfolio hosted using GitHub Pages.</p>
-</div>
-</div>
-</div>
+  <div class="box">
+    <h3>Projects</h3>
+    <div class="grid">
+      <div class="card">
+        <h4>Waste Management System</h4>
+        <p>GPS‑based system with admin, agent and public modules.</p>
+      </div>
+      <div class="card">
+        <h4>Portfolio Website</h4>
+        <p>Modern responsive portfolio hosted using GitHub Pages.</p>
+      </div>
+    </div>
+  </div>
 </section>
-
 
 <section id="contact">
-<div class="box">
-<h3>Contact</h3>
-<form>
-<input placeholder="Your Name" required />
-<input type="email" placeholder="Your Email" required />
-<textarea rows="4" placeholder="Your Message"></textarea>
-<button class="btn primary">Send Message</button>
-</form>
-</div>
+  <div class="box">
+    <h3>Contact</h3>
+    <form>
+      <input placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button class="btn primary">Send Message</button>
+    </form>
+  </div>
 </section>
 
-
 <footer>
-© 2025 Manikandang Mani · Built with ❤️
+  © 2025 Manikandang Mani · Built with ❤️
 </footer>
 
 </body>
