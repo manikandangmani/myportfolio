@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manikandan g Mani | Portfolio</title>
+<title>Manikandan G Mani | Portfolio</title>
 
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
 body{
   background:radial-gradient(circle at top,#0f172a,#020617);
   color:#e5e7eb;
-  transition:0.3s;
+  transition:.3s;
 }
 
 a{text-decoration:none;color:inherit}
@@ -34,7 +34,7 @@ header{
 header h1{color:#38bdf8;font-size:24px}
 
 .header-right{
-  display:flex;align-items:center;gap:20px;
+  display:flex;align-items:center;gap:18px;
 }
 
 nav a{
@@ -104,19 +104,24 @@ h3{color:#38bdf8;font-size:32px;margin-bottom:25px}
   box-shadow:0 20px 40px rgba(0,0,0,.6)
 }
 
-/* CONTACT */
-input,textarea{
-  width:100%;
-  padding:14px;
-  margin-bottom:15px;
-  border-radius:10px;
-  border:none;
-  background:#020617;
-  color:#e5e7eb
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px 10%;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:#94a3b8;
 }
 
-/* FOOTER */
-footer{text-align:center;padding:25px;color:#94a3b8}
+.footer-socials{
+  margin:18px 0;
+}
+
+.footer-socials a{
+  margin:0 12px;
+  font-size:22px;
+}
+
+.footer-socials a:hover{opacity:.8}
 
 /* TOGGLE */
 .toggle-btn{
@@ -127,56 +132,16 @@ footer{text-align:center;padding:25px;color:#94a3b8}
   cursor:pointer;
 }
 
-/* LIGHT MODE – FIXED */
+/* LIGHT MODE */
 body.light{
-  background: #f1f5f9;
-  color: #0f172a;
+  background:#f1f5f9;
+  color:#0f172a;
 }
-
-body.light header{
-  background: rgba(255,255,255,0.9);
-  border-bottom: 1px solid #e2e8f0;
-}
-
-body.light nav a{
-  color: #0f172a;
-}
-
-body.light .hero p{
-  color: #334155;
-}
-
-body.light .box{
-  background: #ffffff;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-
-body.light .card{
-  background: #f8fafc;
-  color: #0f172a;
-}
-
-body.light input,
-body.light textarea{
-  background: #ffffff;
-  color: #0f172a;
-  border: 1px solid #cbd5f5;
-}
-
-body.light .btn.primary{
-  background: linear-gradient(135deg,#0ea5e9,#38bdf8);
-  color: #ffffff;
-}
-
-body.light .btn.outline{
-  border-color: #0ea5e9;
-  color: #0ea5e9;
-}
-
-body.light footer{
-  color: #475569;
-}
-
+body.light header{background:rgba(255,255,255,.9)}
+body.light .box,
+body.light .card{background:#ffffff;color:#0f172a}
+body.light nav a{color:#0f172a}
+body.light footer{color:#475569}
 
 /* MOBILE */
 @media(max-width:768px){
@@ -189,28 +154,16 @@ body.light footer{
 <body>
 
 <header>
-  <h1>Manikandan g Mani</h1>
+  <h1>Manikandan G Mani</h1>
 
   <div class="header-right">
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
     </nav>
 
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/manikandan-g-1baa59230" target="_blank">
-      <i class="fab fa-linkedin" style="font-size:20px;color:#38bdf8"></i>
-    </a>
-<a href="https://wa.me/7902873682" target="_blank" title="WhatsApp">
-  <i class="fab fa-whatsapp" style="font-size:20px;color:#25D366"></i>
-</a>
-
-<a href="https://www.instagram.com/maniacboy.619" target="_blank" title="Instagram">
-  <i class="fab fa-instagram" style="font-size:20px;color:#E1306C"></i>
-</a>
-    <!-- Toggle -->
+    <!-- Theme Toggle -->
     <button id="themeToggle" class="toggle-btn">
       <i class="fas fa-moon"></i>
     </button>
@@ -218,7 +171,7 @@ body.light footer{
 </header>
 
 <section class="hero">
-  <h2>Hi, I'm <span>Manikandan g</span></h2>
+  <h2>Hi, I'm <span>Manikandan G</span></h2>
   <p>Full Stack Developer (MERN) building clean, scalable and user-friendly web applications.</p>
   <a href="#projects" class="btn primary">View Projects</a>
   <a href="resume.pdf" download class="btn outline">Download Resume</a>
@@ -261,18 +214,22 @@ body.light footer{
   </div>
 </section>
 
-<section id="contact">
-  <div class="box">
-    <h3>Contact</h3>
-    <input placeholder="Your Name">
-    <input type="email" placeholder="Your Email">
-    <textarea rows="4" placeholder="Your Message"></textarea>
-    <a class="btn primary">Send Message</a>
-  </div>
-</section>
-
 <footer>
-  © 2025 Manikandan g Mani
+  <p>Email: <strong>manikandangmani@gmail.com</strong></p>
+
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/manikandan-g-1baa59230" target="_blank" style="color:#0a66c2">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://wa.me/917902873682" target="_blank" style="color:#25D366">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://www.instagram.com/maniacboy.619" target="_blank" style="color:#E1306C">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+
+  <p>© 2025 Manikandan G Mani</p>
 </footer>
 
 <script>
