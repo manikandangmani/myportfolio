@@ -6,6 +6,7 @@
 <title>Manikandang Mani | Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
@@ -117,13 +118,29 @@ footer{text-align:center;padding:25px;color:#94a3b8}
 
 <header>
   <h1>Manikandang Mani</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+
+  <div style="display:flex;align-items:center;gap:18px;">
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- LinkedIn Icon -->
+    <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME"
+       target="_blank"
+       style="font-size:20px;color:#38bdf8;">
+      <i class="fab fa-linkedin"></i>
+    </a>
+
+    <!-- Dark/Light Toggle -->
+    <button id="themeToggle" style="background:none;border:none;color:#38bdf8;font-size:18px;cursor:pointer;">
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
 </header>
+
 
 <section class="hero">
   <h2>Hi, I'm <span>Manikandang</span></h2>
