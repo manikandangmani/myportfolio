@@ -74,6 +74,24 @@
 <footer>
 © 2025 Manikandang Mani · Built with ❤️
 </footer>
+<script>
+  const reveals = document.querySelectorAll('.box, .card, .hero');
+
+  function revealOnScroll() {
+    reveals.forEach(el => {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+      const revealPoint = 120;
+
+      if (elementTop < windowHeight - revealPoint) {
+        el.classList.add('reveal', 'active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+</script>
 
 
 </body>
