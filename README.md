@@ -14,7 +14,7 @@ Personal portfolio website showcasing my skills, projects, and experience as a M
 - JavaScript
 
 ## 🔗 Live Demo
-https://manikandangmani.github.io/portfolio/
+https://manikandangmani.github.io/myportfolio/
 
 ## 📬 Contact
 Email: manikandangmani78@gmail.com
