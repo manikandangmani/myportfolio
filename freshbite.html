@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FreshBite - Food delivery mobile app UI/UX case study designed in Figma by Manikandan G Mani.">
+<title>FreshBite UI Design | Manikandan G Mani</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+  --bg:      #04060f;
+  --surface: #090e1f;
+  --surface2:#0e1530;
+  --accent:  #38bdf8;
+  --accent2: #818cf8;
+  --text:    #e2e8f0;
+  --muted:   #7b8eb0;
+  --border:  rgba(255,255,255,.07);
+  --glow:    rgba(56,189,248,.18);
+  --radius:  18px;
+  --trans:   .32s cubic-bezier(.4,0,.2,1);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ambient orbs */
+.orb { position: fixed; border-radius: 50%; filter: blur(130px); z-index: -1; pointer-events: none; }
+.orb1 { width: 500px; height: 500px; background: #38bdf8; top: -160px; left: -160px; opacity: .12; animation: drift 14s ease-in-out infinite alternate; }
+.orb2 { width: 400px; height: 400px; background: #818cf8; bottom: -140px; right: -140px; opacity: .10; animation: drift 18s ease-in-out infinite alternate-reverse; }
+@keyframes drift { to { transform: translate(40px, 30px); } }
+
+a { text-decoration: none; color: inherit; }
+
+/* ── TOP BAR ── */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 8%;
+  background: rgba(4,6,15,.75);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 30px;
+  color: var(--accent);
+  border: 1px solid rgba(56,189,248,.35);
+  font-size: 13px;
+  font-weight: 500;
+  transition: var(--trans);
+}
+.back-btn:hover { background: rgba(56,189,248,.1); transform: translateX(-3px); }
+
+.top-right { display: flex; align-items: center; gap: 12px; }
+
+.site-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--accent);
+}
+
+.figma-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--accent);
+  color: #020617;
+  transition: var(--trans);
+}
+.figma-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--glow); }
+
+/* ── HERO ── */
+.case-hero {
+  text-align: center;
+  padding: 80px 8% 50px;
+  animation: fadeUp .8s ease both;
+}
+
+.case-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(56,189,248,.1);
+  border: 1px solid rgba(56,189,248,.2);
+  padding: 4px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.case-hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  margin-bottom: 18px;
+  line-height: 1.15;
+}
+
+.case-hero h1 span { color: var(--accent); }
+
+.case-hero p {
+  max-width: 640px;
+  margin: 0 auto 36px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* meta chips */
+.case-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.meta-chip i { color: var(--accent); }
+
+/* ── DIVIDER ── */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 0 8%;
+  width: calc(100% - 16%);
+}
+
+/* ── SCREENS GRID ── */
+.screens-section {
+  padding: 60px 8% 80px;
+}
+
+.screens-section h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 36px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.design-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  animation: fadeUp .6s ease both;
+}
+
+.design-item:nth-child(1) { animation-delay: .05s; }
+.design-item:nth-child(2) { animation-delay: .12s; }
+.design-item:nth-child(3) { animation-delay: .19s; }
+.design-item:nth-child(4) { animation-delay: .26s; }
+.design-item:nth-child(5) { animation-delay: .33s; }
+
+.design-item h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+.img-wrap {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--trans);
+  position: relative;
+}
+
+.img-wrap::after {
+  content: '\f00e';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  color: white;
+  background: rgba(4,6,15,.6);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: var(--trans);
+}
+
+.img-wrap:hover { border-color: rgba(56,189,248,.4); transform: translateY(-8px); box-shadow: 0 24px 60px rgba(56,189,248,.12); }
+.img-wrap:hover::after { opacity: 1; }
+
+.img-wrap img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9/19;
+  object-fit: contain;
+  padding: 12px;
+  display: block;
+}
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.92);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 24px;
+  cursor: zoom-out;
+  backdrop-filter: blur(8px);
+}
+
+.lightbox.active { display: flex; }
+
+.lightbox-inner {
+  position: relative;
+  max-width: 420px;
+  width: 100%;
+  animation: fadeUp .3s ease;
+}
+
+.lightbox-inner img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 40px 100px rgba(0,0,0,.6);
+}
+
+.lb-close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #020617;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: var(--trans);
+}
+.lb-close:hover { transform: scale(1.15); }
+
+.lb-label {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted);
+  font-family: 'Syne', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* ── FOOTER ── */
+.case-footer {
+  text-align: center;
+  padding: 40px 8%;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.case-footer a {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.case-footer a:hover { text-decoration: underline; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .top-bar { padding: 14px 6%; }
+  .case-hero { padding: 60px 6% 40px; }
+  .screens-section { padding: 40px 6% 60px; }
+  .design-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .site-logo { display: none; }
+}
+
+@media (max-width: 480px) {
+  .design-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <a href="index.html#projects" class="back-btn">
+    <i class="fas fa-arrow-left"></i> Back to Portfolio
+  </a>
+  <div class="top-right">
+    <span class="site-logo">Manikandan G Mani</span>
+    <a href="https://www.figma.com/design/ye5tB1RVAkoOLyI9DfZ7AU/FRESH-BITE?node-id=0-1&t=wKy4Bri86T9gnxrC-1"
+       target="_blank" rel="noopener" class="figma-btn">
+      <i class="fa-brands fa-figma"></i> View in Figma
+    </a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="case-hero">
+  <div class="case-tag">Case Study · UI Design</div>
+  <h1>FreshBite <span>Mobile App</span> UI</h1>
+  <p>A food delivery mobile app prototype designed in Figma, focused on intuitive navigation, clean layout, and a smooth end-to-end user flow from login to checkout.</p>
+
+  <div class="case-meta">
+    <span class="meta-chip"><i class="fab fa-figma"></i> Figma</span>
+    <span class="meta-chip"><i class="fas fa-mobile-alt"></i> Mobile UI</span>
+    <span class="meta-chip"><i class="fas fa-layer-group"></i> 5 Screens</span>
+    <span class="meta-chip"><i class="fas fa-utensils"></i> Food Delivery</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SCREENS -->
+<div class="screens-section">
+  <h2>App Screens</h2>
+  <div class="design-grid">
+
+    <div class="design-item">
+      <h3>Login Screen</h3>
+      <div class="img-wrap" onclick="openLightbox(this)">
+        <img src="images/screen1.png" alt="FreshBite Login Screen" loading="lazy">
+      </div>
+    </div>
+
+    <div class="design-item">
+      <h3>Home Screen</h3>
+      <div class="img-wrap" onclick="openLightbox(this)">
+        <img src="images/screen2.png" alt="FreshBite Home Screen" loading="lazy">
+      </div>
+    </div>
+
+    <div class="design-item">
+      <h3>Item Details</h3>
+      <div class="img-wrap" onclick="openLightbox(this)">
+        <img src="images/screen3.png" alt="FreshBite Item Details" loading="lazy">
+      </div>
+    </div>
+
+    <div class="design-item">
+      <h3>Cart Page</h3>
+      <div class="img-wrap" onclick="openLightbox(this)">
+        <img src="images/screen4.png" alt="FreshBite Cart Page" loading="lazy">
+      </div>
+    </div>
+
+    <div class="design-item">
+      <h3>Logout Warning</h3>
+      <div class="img-wrap" onclick="openLightbox(this)">
+        <img src="images/screen5.png" alt="FreshBite Logout Warning" loading="lazy">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <button class="lb-close" onclick="closeLightboxBtn()"><i class="fas fa-times"></i></button>
+    <img src="" id="lightbox-img" alt="">
+    <div class="lb-label" id="lb-label"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="case-footer">
+  <p>Designed by <a href="index.html">Manikandan G Mani</a> · <a href="https://www.figma.com/design/ye5tB1RVAkoOLyI9DfZ7AU/FRESH-BITE" target="_blank">Open in Figma ↗</a></p>
+</div>
+
+<script>
+function openLightbox(wrap) {
+  const img = wrap.querySelector('img');
+  const h3  = wrap.closest('.design-item').querySelector('h3');
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lb-label').textContent = h3 ? h3.textContent : '';
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e) {
+  if (e.target === e.currentTarget) closeLightboxBtn();
+}
+
+function closeLightboxBtn() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightboxBtn(); });
+</script>
+
+</body>
+</html>
