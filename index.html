@@ -14,7 +14,7 @@
 <!-- ── ITEM 10: Open Graph ── -->
 <meta property="og:title" content="Manikandan G Mani | UI/UX Designer">
 <meta property="og:description" content="MCA graduate from Kerala who designs clean dark-theme interfaces in Figma. Currently building an E-commerce Admin Dashboard.">
-<meta property="og:image" content="images/og-banner.png">
+<meta property="og:image" content="https://manikandangmani.github.io/myportfolio/images/og-banner.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
@@ -22,7 +22,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Manikandan G Mani | UI/UX Designer">
 <meta name="twitter:description" content="MCA graduate from Kerala designing clean dark-theme interfaces in Figma.">
-<meta name="twitter:image" content="images/og-banner.png">
+<meta name="twitter:image" content="https://manikandangmani.github.io/myportfolio/images/og-banner.png">
 
 <!-- ── ITEM 11: Favicon ── -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2338bdf8'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial Black' font-weight='900' font-size='18' fill='%23020617'>M</text></svg>">
@@ -764,7 +764,7 @@ footer .footer-email { color:var(--text); font-weight:500; font-size:15px; margi
 
 <!-- ── HEADER ── -->
 <header>
-  <div class="logo">Manikandan G Mani<span>UI/UX Designer</span></div>
+  <div class="logo">Manikandan G<span>UI/UX Designer</span></div>
   <div class="header-right">
     <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
       <i class="fas fa-bars"></i>
@@ -790,7 +790,7 @@ footer .footer-email { color:var(--text); font-weight:500; font-size:15px; margi
 </header>
 
 <!-- ── HERO ── -->
-<section class="hero">
+<section class="hero" id="hero">
   <div class="hero-content">
     <div class="hero-badge"><span class="dot"></span> Available for work</div>
     <h2>Hi, I'm <span class="accent">Manikandan</span><br><span class="accent2">UI/UX</span> Designer</h2>
@@ -808,6 +808,8 @@ footer .footer-email { color:var(--text); font-weight:500; font-size:15px; margi
       <div><div class="stat-num">3+</div><div class="stat-label">Projects Shipped</div></div>
       <div><div class="stat-num">MCA</div><div class="stat-label">Graduate</div></div>
       <div><div class="stat-num">Figma</div><div class="stat-label">Primary Tool</div></div>
+      <div><div class="stat-num">HTML</div><div class="stat-label">Secondary Tools</div></div>
+      <div><div class="stat-num">CSS</div><div class="stat-label"></div></div>
     </div>
   </div>
 
@@ -816,7 +818,7 @@ footer .footer-email { color:var(--text); font-weight:500; font-size:15px; margi
     <div class="hero-photo-ring">
       <div class="hero-photo-inner">
         <!-- Replace profile.jpg with your actual photo filename -->
-        <img src="images/profile" loading="lazy"  alt="Manikandan G Mani"
+        <img src="images/profile.jpeg" loading="lazy"  alt="Manikandan G Mani"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
         <div class="avatar-placeholder" style="display:none;">M</div>
       </div>
@@ -866,7 +868,7 @@ footer .footer-email { color:var(--text); font-weight:500; font-size:15px; margi
 <section id="experience">
   <div class="box reveal">
     <div class="section-tag">Experience</div>
-    <div class="section-title">Education , Work & <span>Projects Timeline</span></div>
+    <div class="section-title">Education, Work & <span>Projects Timeline</span></div>
 
     <div class="experience-list">
 
@@ -977,7 +979,7 @@ footer .footer-email { color:var(--text); font-weight:500; font-size:15px; margi
       <div class="skill-card">
         <div class="skill-icon"><i class="fas fa-vector-square"></i></div>
         <h4>UI/UX Design</h4>
-        <div class="skill-duration"></div>
+       <div class="skill-duration"></div>
         <p>User research, wireframing, prototyping, and visual design.</p>
         <div class="skill-bar-wrap"><div class="skill-bar" data-w="88"></div></div>
       </div>
@@ -1227,7 +1229,7 @@ footer .footer-email { color:var(--text); font-weight:500; font-size:15px; margi
     <a href="https://github.com/manikandangmani" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
     <a href="https://www.instagram.com/maniacboy.619" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
   </div>
-  <p>© 2025 Manikandan G Mani · Designed & Built with ❤️</p>
+  <p>© <span id="yr"></span> Manikandan G Mani · Designed & Built with ❤️</p>
 </footer>
 
 <button id="scrollTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
