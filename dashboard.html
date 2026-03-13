@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ShopX E-Commerce Admin Dashboard — UI/UX case study designed in Figma by Manikandan G Mani.">
+<title>ShopX Dashboard UI | Manikandan G Mani</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+  --bg:      #04060f;
+  --surface: #090e1f;
+  --surface2:#0e1530;
+  --accent:  #38bdf8;
+  --accent2: #818cf8;
+  --green:   #4ade80;
+  --text:    #e2e8f0;
+  --muted:   #7b8eb0;
+  --border:  rgba(255,255,255,.07);
+  --glow:    rgba(56,189,248,.18);
+  --radius:  18px;
+  --trans:   .32s cubic-bezier(.4,0,.2,1);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; min-height:100vh; overflow-x:hidden; }
+
+.orb { position:fixed; border-radius:50%; filter:blur(130px); z-index:-1; pointer-events:none; }
+.orb1 { width:500px; height:500px; background:#38bdf8; top:-160px; left:-160px; opacity:.12; animation:drift 14s ease-in-out infinite alternate; }
+.orb2 { width:400px; height:400px; background:#818cf8; bottom:-140px; right:-140px; opacity:.10; animation:drift 18s ease-in-out infinite alternate-reverse; }
+@keyframes drift { to { transform:translate(40px,30px); } }
+
+a { text-decoration:none; color:inherit; }
+
+/* TOP BAR */
+.top-bar {
+  position:sticky; top:0; z-index:1000;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:18px 8%;
+  background:rgba(4,6,15,.75);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.back-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:9px 18px; border-radius:30px;
+  color:var(--accent); border:1px solid rgba(56,189,248,.35);
+  font-size:13px; font-weight:500; transition:var(--trans);
+}
+.back-btn:hover { background:rgba(56,189,248,.1); transform:translateX(-3px); }
+.top-right { display:flex; align-items:center; gap:12px; }
+.site-logo { font-family:'Syne',sans-serif; font-weight:800; font-size:16px; color:var(--accent); }
+.figma-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:9px 20px; border-radius:30px;
+  font-size:13px; font-weight:600;
+  background:var(--accent); color:#020617; transition:var(--trans);
+}
+.figma-btn:hover { transform:translateY(-2px); box-shadow:0 8px 24px var(--glow); }
+
+/* HERO */
+.case-hero {
+  text-align:center; padding:80px 8% 50px;
+  animation:fadeUp .8s ease both;
+}
+.case-tag {
+  display:inline-block; font-size:12px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase;
+  color:var(--accent); background:rgba(56,189,248,.1);
+  border:1px solid rgba(56,189,248,.2);
+  padding:4px 16px; border-radius:20px; margin-bottom:20px;
+}
+.case-hero h1 {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(28px,4vw,50px); font-weight:800;
+  margin-bottom:18px; line-height:1.15;
+}
+.case-hero h1 span { color:var(--accent); }
+.case-hero p {
+  max-width:640px; margin:0 auto 36px;
+  color:var(--muted); font-size:16px; line-height:1.75;
+}
+.case-meta {
+  display:flex; justify-content:center; flex-wrap:wrap; gap:12px;
+}
+.meta-chip {
+  display:inline-flex; align-items:center; gap:6px;
+  padding:6px 16px; border-radius:30px; font-size:13px;
+  background:var(--surface2); border:1px solid var(--border); color:var(--muted);
+}
+.meta-chip i { color:var(--accent); }
+
+/* DIVIDER */
+.divider { height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); margin:0 8%; }
+
+/* HIGHLIGHTS */
+.highlights {
+  display:flex; justify-content:center; flex-wrap:wrap;
+  gap:20px; padding:52px 8% 0;
+  max-width:1100px; margin:0 auto;
+}
+.highlight-card {
+  background:var(--surface2); border:1px solid var(--border);
+  border-radius:16px; padding:24px 32px;
+  flex:1; min-width:150px; text-align:center; transition:var(--trans);
+}
+.highlight-card:hover { border-color:rgba(56,189,248,.35); transform:translateY(-4px); }
+.highlight-card .hi {
+  font-family:'Syne',sans-serif; font-size:17px; font-weight:800;
+  color:var(--accent); line-height:1.3;
+}
+.highlight-card p { font-size:13px; color:var(--muted); margin-top:6px; line-height:1.5; }
+
+/* PROBLEM / SOLUTION */
+.case-section { padding:64px 8%; max-width:1200px; margin:0 auto; }
+.case-section h2 {
+  font-family:'Syne',sans-serif; font-size:13px; font-weight:700;
+  color:var(--muted); margin-bottom:28px;
+  text-transform:uppercase; letter-spacing:2px; text-align:center;
+}
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.info-card {
+  background:var(--surface2); border:1px solid var(--border);
+  border-radius:var(--radius); padding:32px;
+}
+.info-card h3 {
+  font-family:'Syne',sans-serif; font-size:16px; font-weight:700;
+  margin-bottom:14px;
+}
+.info-card h3 .icon { margin-right:8px; }
+.info-card p, .info-card li {
+  font-size:14px; color:var(--muted); line-height:1.8;
+}
+.info-card ul { padding-left:18px; }
+.info-card ul li { margin-bottom:6px; }
+.info-card ul li span { color:var(--accent); font-weight:500; }
+
+/* SCREENS */
+.screens-section { padding:60px 8% 40px; }
+.screens-section h2 {
+  font-family:'Syne',sans-serif; font-size:13px; font-weight:700;
+  color:var(--muted); margin-bottom:36px;
+  text-transform:uppercase; letter-spacing:2px; text-align:center;
+}
+
+/* Full width main screen */
+.main-screen {
+  max-width:1100px; margin:0 auto 48px;
+  background:var(--surface2); border:1px solid var(--border);
+  border-radius:20px; overflow:hidden;
+  cursor:zoom-in; transition:var(--trans); position:relative;
+}
+.main-screen::after {
+  content:'\f00e'; font-family:'Font Awesome 6 Free'; font-weight:900;
+  position:absolute; inset:0; display:grid; place-items:center;
+  font-size:36px; color:white;
+  background:rgba(4,6,15,.55); backdrop-filter:blur(4px);
+  opacity:0; transition:var(--trans);
+}
+.main-screen:hover { border-color:rgba(56,189,248,.4); transform:translateY(-4px); box-shadow:0 28px 70px rgba(56,189,248,.1); }
+.main-screen:hover::after { opacity:1; }
+.main-screen img { width:100%; height:auto; display:block; padding:16px; }
+
+/* component breakdown grid */
+.comp-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; max-width:1100px; margin:0 auto; }
+.comp-card {
+  background:var(--surface2); border:1px solid var(--border);
+  border-radius:16px; overflow:hidden; transition:var(--trans); cursor:pointer;
+}
+.comp-card:hover { border-color:rgba(56,189,248,.35); transform:translateY(-6px); box-shadow:0 20px 50px rgba(56,189,248,.1); }
+.comp-label {
+  padding:12px 16px;
+  font-family:'Syne',sans-serif; font-size:12px; font-weight:700;
+  color:var(--muted); letter-spacing:1px; text-transform:uppercase;
+  border-bottom:1px solid var(--border);
+  display:flex; align-items:center; gap:8px;
+}
+.comp-label .dot { width:8px; height:8px; border-radius:50%; }
+.comp-body { padding:16px; }
+.comp-body p { font-size:12.5px; color:var(--muted); line-height:1.7; }
+
+/* design decisions */
+.decisions-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; max-width:1100px; margin:0 auto; }
+.decision-card {
+  background:var(--surface2); border:1px solid var(--border);
+  border-radius:16px; padding:28px 24px; transition:var(--trans);
+}
+.decision-card:hover { border-color:rgba(56,189,248,.25); }
+.decision-icon { font-size:28px; margin-bottom:14px; }
+.decision-card h4 { font-family:'Syne',sans-serif; font-size:15px; font-weight:700; margin-bottom:10px; }
+.decision-card p { font-size:13.5px; color:var(--muted); line-height:1.8; }
+
+/* LIGHTBOX */
+.lightbox {
+  display:none; position:fixed; inset:0;
+  background:rgba(0,0,0,.92); justify-content:center; align-items:center;
+  z-index:9999; padding:24px; cursor:zoom-out; backdrop-filter:blur(8px);
+}
+.lightbox.active { display:flex; }
+.lightbox-inner {
+  position:relative; max-width:1100px; width:100%;
+  animation:fadeUp .3s ease;
+}
+.lightbox-inner img { width:100%; height:auto; border-radius:20px; box-shadow:0 40px 100px rgba(0,0,0,.6); }
+.lb-close {
+  position:absolute; top:-16px; right:-16px;
+  width:36px; height:36px; border-radius:50%;
+  background:var(--accent); color:#020617;
+  border:none; font-size:16px; cursor:pointer;
+  display:grid; place-items:center; transition:var(--trans);
+}
+.lb-close:hover { transform:scale(1.15); }
+
+/* FOOTER */
+.case-footer {
+  text-align:center; padding:40px 8%;
+  border-top:1px solid var(--border);
+  color:var(--muted); font-size:14px;
+}
+.case-footer a { color:var(--accent); font-weight:500; }
+.case-footer a:hover { text-decoration:underline; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+
+@media(max-width:768px) {
+  .top-bar { padding:14px 6%; }
+  .case-hero { padding:60px 6% 40px; }
+  .screens-section, .case-section { padding:40px 6%; }
+  .two-col { grid-template-columns:1fr; }
+  .site-logo { display:none; }
+  .highlights { padding:36px 6% 0; }
+}
+</style>
+</head>
+<body>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <a href="index.html#projects" class="back-btn">
+    <i class="fas fa-arrow-left"></i> Back to Portfolio
+  </a>
+  <div class="top-right">
+    <span class="site-logo">Manikandan G Mani</span>
+    <a href="https://www.figma.com/design/upx5JT5XLSLQ3KjD3fggle/E-commerce-Admin-Dashboard?node-id=0-1&t=HTZeSOzuA29LUB03-1"
+       target="_blank" rel="noopener" class="figma-btn">
+      <i class="fa-brands fa-figma"></i> View in Figma
+    </a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="case-hero">
+  <div class="case-tag">Case Study · Dashboard UI</div>
+  <h1>ShopX <span>Admin Dashboard</span></h1>
+  <p>A full e-commerce admin dashboard designed in Figma — featuring KPI stat cards, revenue charts, sales breakdown, recent orders table, and a top products panel. Built with reusable components and auto layout.</p>
+  <div class="case-meta">
+    <span class="meta-chip"><i class="fab fa-figma"></i> Figma</span>
+    <span class="meta-chip"><i class="fas fa-desktop"></i> Desktop UI</span>
+    <span class="meta-chip"><i class="fas fa-chart-bar"></i> Data Visualization</span>
+    <span class="meta-chip"><i class="fas fa-store"></i> E-Commerce</span>
+    <span class="meta-chip"><i class="fas fa-puzzle-piece"></i> Components</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- HIGHLIGHTS -->
+<div class="highlights">
+  <div class="highlight-card">
+    <div class="hi">4 KPI Cards</div>
+    <p>Revenue, Orders, Customers, Products</p>
+  </div>
+  <div class="highlight-card">
+    <div class="hi">2 Charts</div>
+    <p>Bar chart + Donut chart</p>
+  </div>
+  <div class="highlight-card">
+    <div class="hi">Orders Table</div>
+    <p>With status badges + amounts</p>
+  </div>
+  <div class="highlight-card">
+    <div class="hi">Top Products</div>
+    <p>Ranked list with progress bars</p>
+  </div>
+  <div class="highlight-card">
+    <div class="hi">Auto Layout</div>
+    <p>Fully structured components</p>
+  </div>
+</div>
+
+<div class="divider" style="margin-top:52px;"></div>
+
+<!-- PROBLEM / SOLUTION -->
+<div class="case-section">
+  <h2>Problem & Solution</h2>
+  <div class="two-col">
+    <div class="info-card">
+      <h3><span class="icon">⚠️</span>The Problem</h3>
+      <p>E-commerce store owners need to monitor multiple business metrics at once — revenue trends, order status, top-selling products, and category performance. Most dashboards are either too cluttered or too minimal, making key data hard to find quickly.</p>
+    </div>
+    <div class="info-card">
+      <h3><span class="icon">✅</span>The Solution</h3>
+      <ul>
+        <li><span>Clear hierarchy</span> — most important KPIs at the top as scannable stat cards</li>
+        <li><span>Visual data</span> — bar chart for revenue trends, donut for category split</li>
+        <li><span>Actionable tables</span> — recent orders with color-coded status badges</li>
+        <li><span>Dark theme</span> — reduces eye strain for long sessions</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN DASHBOARD SCREEN -->
+<div class="screens-section">
+  <h2>Dashboard Overview Screen</h2>
+  <div class="main-screen" onclick="openLightbox(this)">
+    <img src="images/dashboard.png" alt="ShopX Admin Dashboard Overview" loading="lazy">
+  </div>
+
+  <!-- COMPONENT BREAKDOWN -->
+  <h2 style="margin-top:0;">Component Breakdown</h2>
+  <div class="comp-grid">
+    <div class="comp-card">
+      <div class="comp-label"><span class="dot" style="background:#818cf8;"></span>Sidebar Navigation</div>
+      <div class="comp-body">
+        <p>Grouped into Main, Store, and System sections. Active state highlighted with accent color. User profile pinned at bottom.</p>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-label"><span class="dot" style="background:#38bdf8;"></span>KPI Stat Cards</div>
+      <div class="comp-body">
+        <p>4 cards — Total Revenue ₹2,84,500 · Orders 1,284 · Customers 6,741 · Products 341. Each shows % change with mini sparkline chart.</p>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-label"><span class="dot" style="background:#4ade80;"></span>Revenue Bar Chart</div>
+      <div class="comp-body">
+        <p>Monthly vs last year comparison with Monthly / Weekly / Daily toggle. This year in purple, last year in grey.</p>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-label"><span class="dot" style="background:#f59e0b;"></span>Sales Donut Chart</div>
+      <div class="comp-body">
+        <p>Category breakdown — Electronics 38%, Clothing 27%, Home & Living 19%, Books 16%. ₹2.8L total shown in center.</p>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-label"><span class="dot" style="background:#f87171;"></span>Recent Orders Table</div>
+      <div class="comp-body">
+        <p>Order ID · Product · Status badge · Amount. Status uses color-coded chips: Delivered (green), Pending (yellow), Shipped (blue), Cancelled (red).</p>
+      </div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-label"><span class="dot" style="background:#c084fc;"></span>Top Products Panel</div>
+      <div class="comp-body">
+        <p>Top 5 products ranked by sales with colored progress bars and revenue amounts. iPhone Case leads at 842 sold / ₹1.01L.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DESIGN DECISIONS -->
+<div class="case-section" style="padding-top:0;">
+  <h2>Design Decisions</h2>
+  <div class="decisions-grid">
+    <div class="decision-card">
+      <div class="decision-icon">🎨</div>
+      <h4>Dark Theme Choice</h4>
+      <p>Dark navy background reduces eye strain for admins who spend long hours monitoring data. High contrast text ensures readability at a glance.</p>
+    </div>
+    <div class="decision-card">
+      <div class="decision-icon">📊</div>
+      <h4>Color-Coded Data</h4>
+      <p>Each KPI card uses a different accent color (blue, cyan, green, yellow) to make each metric instantly distinguishable without reading the label.</p>
+    </div>
+    <div class="decision-card">
+      <div class="decision-icon">🔢</div>
+      <h4>Status Badges</h4>
+      <p>Order status uses 4 distinct colored badges — green, yellow, blue, red — so an admin can scan order health in seconds without reading every row.</p>
+    </div>
+    <div class="decision-card">
+      <div class="decision-icon">📐</div>
+      <h4>Auto Layout & Components</h4>
+      <p>All cards, table rows, and nav items built with Auto Layout and reusable components — making the design scalable and consistent throughout.</p>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <button class="lb-close" onclick="closeLightboxBtn()"><i class="fas fa-times"></i></button>
+    <img src="" id="lightbox-img" alt="ShopX Dashboard">
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="case-footer">
+  <p>Designed by <a href="index.html">Manikandan G Mani</a> · <a href="https://www.figma.com/design/YOUR_DASHBOARD_LINK" target="_blank">Open in Figma ↗</a></p>
+</div>
+
+<script>
+function openLightbox(wrap) {
+  const img = wrap.querySelector('img');
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e) { if(e.target === e.currentTarget) closeLightboxBtn(); }
+function closeLightboxBtn() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightboxBtn(); });
+</script>
+</body>
+</html>
