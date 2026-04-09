@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV | Manikandan - UI/UX Designer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="global.css">
+
+  <style>
+    :root {
+      --cv-width: 900px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      padding: 120px 0 80px;
+      font-family: 'DM Sans', sans-serif;
+      cursor: auto !important;
+    }
+
+    .cv-wrapper {
+      max-width: var(--cv-width);
+      margin: 0 auto;
+      padding: 60px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    /* HEADER */
+    .cv-header {
+      text-align: center;
+      margin-bottom: 50px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 40px;
+    }
+
+    .cv-header h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .cv-header .subtitle {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 24px;
+    }
+
+    .cv-meta {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .cv-meta div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* SECTIONS */
+    .cv-section {
+      margin-bottom: 40px;
+    }
+
+    .cv-section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--accent);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cv-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      opacity: 0.9;
+    }
+
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+    }
+
+    /* PROJECT & EDU ITEMS */
+    .item { margin-bottom: 30px; }
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+    .item-head h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .item-head .date {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      padding: 4px 10px;
+      background: var(--surface2);
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .item-sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    /* SKILLS */
+    .skill-list { list-style: none; padding: 0; }
+    .skill-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .skill-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    .tech-cat { font-size: 13px; margin-bottom: 10px; }
+    .tech-cat strong { color: var(--text); }
+
+    /* FLOATING BUTTONS */
+    .cv-top-nav {
+      position: fixed;
+      top: 30px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 6%;
+      z-index: 1000;
+    }
+    .nav-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 24px;
+      border-radius: 40px;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(10px);
+      transition: var(--trans);
+      text-decoration: none;
+    }
+    .nav-btn.primary {
+      background: var(--accent);
+      color: #020617;
+      border-color: var(--accent);
+      box-shadow: 0 10px 25px var(--glow);
+    }
+    .nav-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
+
+    @media (max-width: 850px) {
+      body { padding-top: 40px; }
+      .cv-wrapper { padding: 40px 24px; margin: 0 12px; border-radius: 16px; }
+      .cv-top-nav { position: relative; top: 0; padding: 0 12px 24px; flex-direction: row; justify-content: space-between; gap: 10px; width: 100%; }
+      .nav-btn { flex: 1; padding: 10px 15px; font-size: 12px; justify-content: center; }
+      .cv-header h1 { font-size: 32px; margin-bottom: 5px; }
+      .cv-meta { display: grid; grid-template-columns: 1fr; text-align: left; gap: 12px; padding: 0 10px; }
+      .cv-meta div { font-size: 12px; }
+      .cv-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="pageTransition" class="page-transition-overlay"></div>
+
+  <div class="cv-top-nav">
+    <a href="index.html" class="nav-btn" data-direction="back">
+      <i class="fas fa-arrow-left"></i> Back to Portfolio
+    </a>
+    <a href="ManikandanResume.pdf" download class="nav-btn primary">
+      <i class="fas fa-download"></i> Download PDF
+    </a>
+  </div>
+
+  <div class="cv-wrapper">
+    <!-- HEADER -->
+    <header class="cv-header">
+      <h1>Manikandan</h1>
+      <div class="subtitle">UI/UX Designer & Front-End Developer</div>
+      <div class="cv-meta">
+        <div><i class="fas fa-map-marker-alt"></i> Kottayam</div>
+        <div><i class="fas fa-envelope"></i> <a href="mailto:manikandangmani78@gmail.com" style="color: inherit; text-decoration: none;">manikandangmani78@gmail.com</a></div>
+        <div><i class="fas fa-phone"></i> <a href="tel:+917902873682" style="color: inherit; text-decoration: none;">+91 7902873682</a></div>
+        <div><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/manikandan-g-1baa59230" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">linkedin.com/in/manikandan-g</a></div>
+      </div>
+    </header>
+
+    <!-- OBJECTIVE -->
+    <section class="cv-section">
+      <div class="cv-section-title">Objective</div>
+      <p class="cv-text">
+        Results-driven UI/UX Designer and MCA graduate from Kerala, passionate about designing intuitive, user centered
+        digital experiences. Skilled in Figma — Auto Layout, Components, Variants, and Prototyping — with strong
+        knowledge of front-end development enabling seamless collaboration with developers. Seeking a UI/UX Designer role
+        to create impactful digital products.
+      </p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="cv-section">
+      <div class="cv-section-title">Education</div>
+      <div class="item">
+        <div class="item-head">
+          <h3>Master of Computer Application</h3>
+          <span class="date">2023 - 2025</span>
+        </div>
+        <div class="item-sub">Nirmala College Muvattupuzha</div>
+      </div>
+      <div class="item">
+        <div class="item-head">
+          <h3>Bachelor of Computer Science</h3>
+          <span class="date">2020 - 2023</span>
+        </div>
+        <div class="item-sub">Swami Swasthikananda College Poothotta</div>
+      </div>
+    </section>
+
+    <!-- SKILLS GRID -->
+    <div class="cv-grid">
+      <!-- UI/UX SKILLS -->
+      <section class="cv-section">
+        <div class="cv-section-title">UI/UX Skills (Primary)</div>
+        <ul class="skill-list">
+          <li>Figma (Prototyping, Auto Layout, Components, Variants)</li>
+          <li>Data Visualization & Dashboard Design</li>
+          <li>Wireframing & Prototyping</li>
+          <li>Responsive Web Design</li>
+          <li>User Flow & Interaction Design</li>
+          <li>Usability Optimization</li>
+          <li>Layout & Visual Hierarchy</li>
+          <li>Mobile-First Design Approach</li>
+        </ul>
+      </section>
+
+      <!-- TECHNICAL SKILLS -->
+      <section class="cv-section">
+        <div class="cv-section-title">Technical Skills (Secondary)</div>
+        <div class="tech-cat"><strong>Frontend:</strong> HTML5, CSS3, Bootstrap, React.js</div>
+        <div class="tech-cat"><strong>Programming:</strong> JavaScript, Python, C</div>
+        <div class="tech-cat"><strong>Database:</strong> MySQL</div>
+        <div class="tech-cat"><strong>Version Control:</strong> Git, GitHub</div>
+        <div class="tech-cat"><strong>Tools:</strong> Visual Studio Code</div>
+      </section>
+    </div>
+
+    <!-- PROJECTS -->
+    <section class="cv-section" style="margin-top: 20px;">
+      <div class="cv-section-title">Projects</div>
+
+      <div class="item">
+        <div class="item-head"><h3>FreshBite Delivery App (UI/UX — Figma)</h3></div>
+        <p class="cv-text" style="font-size: 14px;">Designed 5 mobile UI screens for a food delivery application including Login, Home, Item
+          Details, Cart, and Logout flow. Focused on intuitive navigation, visual hierarchy, and mobile-first design.
+          Built using Figma with Auto Layout and reusable components.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-head"><h3>Instagram Profile UI — Auto Layout (UI/UX — Figma)</h3></div>
+        <p class="cv-text" style="font-size: 14px;">Recreated Instagram's profile screen in Figma using fully structured Auto Layout,
+          reusable components, and an 8pt spacing system. Focused on layout precision, component variants, and scalable
+          design patterns.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-head"><h3>Personal Portfolio Website (HTML · CSS · JavaScript)</h3></div>
+        <p class="cv-text" style="font-size: 14px;">Designed and developed a fully responsive portfolio from scratch featuring dark theme,
+          scroll animations, case study pages, and a contact form. Hosted on GitHub Pages.</p>
+      </div>
+
+      <div class="item">
+        <div class="item-head"><h3>E-Commerce Admin Dashboard (UI/UX — Figma)</h3></div>
+        <p class="cv-text" style="font-size: 14px;">Designing a full admin dashboard with sidebar navigation, stat cards, bar chart, donut chart,
+          orders table, and top products panel. Practicing Charts & Data Visualization, Component Variants, and Auto
+          Layout in Figma.</p>
+      </div>
+    </section>
+
+    <!-- EXTRA & LANGUAGES -->
+    <div class="cv-grid">
+      <section class="cv-section">
+        <div class="cv-section-title">Extra Curricular</div>
+        <p class="cv-text" style="font-size: 13px;">Coordinated Tactical Triumph, a major gaming event in the CAMEO college fest, managing
+          planning, scheduling, and smooth execution of the competition.</p>
+      </section>
+
+      <section class="cv-section">
+        <div class="cv-section-title">Languages Known</div>
+        <div class="cv-text" style="font-size: 14px;">
+           <i class="fas fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i> English<br>
+           <i class="fas fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i> Malayalam<br>
+           <i class="fas fa-check-circle" style="color: var(--accent); margin-right: 8px;"></i> Tamil
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <footer style="margin-top: 60px; opacity: 0.4; text-align: center; font-size: 12px;">
+    <p>© Manikandan · UI/UX Designer Portfolio</p>
+  </footer>
+
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+  <script src="main.js" defer></script>
+  <script>
+    // INITIALIZE LENIS
+    window.lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      wheelMultiplier: 1,
+    });
+    function raf(time) { window.lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  </script>
+</body>
+
+</html>
